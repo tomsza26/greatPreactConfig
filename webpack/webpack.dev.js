@@ -13,15 +13,21 @@ export default webpackBaseBabel({
   mode: "development",
 
   // Add hot reloading in development
-  entry: [
-    "webpack-hot-middleware/client?reload=true",
-    path.join(process.cwd(), "app/app.js"), // Start with js/app.js
-  ],
+  // entry: [
+  //   "webpack-hot-middleware/client?reload=true",
+  //   path.join(process.cwd(), "app/app.js"), // Start with js/app.js
+  // ],
 
   // Don't use hashes in dev mode for better performance
   output: {
     filename: "[name].js",
     chunkFilename: "[name].chunk.js",
+  },
+
+  devServer: {
+    contentBase: ["./app"],
+    inline: true,
+    hot: true,
   },
 
   optimization: {
