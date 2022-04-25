@@ -10,8 +10,8 @@ const TerserPlugin = require("terser-webpack-plugin");
 const PACKAGE = require("../package.json");
 const packageVersion = PACKAGE.version.replace(/\.+/gi, "_");
 
-const origin = "https://nadawca.poczta.onet.pl";
-const publicPath = `https://ocdn.eu/dl-trusted-sender/webapp2/`;
+const origin = "";
+const publicPath = "";
 
 module.exports = require("./webpack.base.babel")({
   mode: "production",
@@ -23,7 +23,7 @@ module.exports = require("./webpack.base.babel")({
   output: {
     filename: "[name].[chunkhash].js",
     chunkFilename: "[name].[chunkhash].chunk.js",
-    publicPath,
+    // publicPath,
     clean: true,
   },
 
@@ -82,7 +82,7 @@ module.exports = require("./webpack.base.babel")({
   plugins: [
     // Minify and optimize the index.html
     new HtmlWebpackPlugin({
-      template: "app/index.ejs",
+      template: "app/index.html",
       templateParameters: {},
       filename: `v${packageVersion}/index.html`,
       minify: {
@@ -111,26 +111,26 @@ module.exports = require("./webpack.base.babel")({
     }), */
 
     new WebpackPwaManifest({
-      name: "Light Preact Boilerplate",
-      short_name: "Light Preact Boilerplate",
-      description: "Light Preact Boilerplate",
+      name: "Great Preact Boilerplate",
+      short_name: "Great Preact Boilerplate",
+      description: "Great Preact Boilerplate",
       background_color: "#fff",
       theme_color: "#4d5964",
       inject: true,
       ios: true,
-      publicPath,
-      start_url: origin,
-      icons: [
-        {
-          src: path.resolve("app/images/icon-512x512.png"),
-          sizes: [72, 96, 128, 144, 192, 384, 512],
-        },
-        {
-          src: path.resolve("app/images/icon-512x512.png"),
-          sizes: [120, 152, 167, 180],
-          ios: true,
-        },
-      ],
+      // publicPath,
+      // start_url: origin,
+      // icons: [
+      //   {
+      //     src: path.resolve("app/images/icon-512x512.png"),
+      //     sizes: [72, 96, 128, 144, 192, 384, 512],
+      //   },
+      //   {
+      //     src: path.resolve("app/images/icon-512x512.png"),
+      //     sizes: [120, 152, 167, 180],
+      //     ios: true,
+      //   },
+      // ],
     }),
 
     new HashedModuleIdsPlugin({
