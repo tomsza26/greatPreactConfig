@@ -2,9 +2,10 @@
   "name": "greatpreactconfig",
   "version": "0.0.1",
   "description": "Great, minimalistic template for any frontend project.",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
-    "start": "cross-env NODE_ENV=development node server/index.js"
+    "start": "cross-env NODE_ENV=development webpack-dev-server --config webpack/webpack.dev.ts",
+    "build": "npx browserslist@latest --update-db && cross-env NODE_ENV=production webpack --config webpack/webpack.prod.ts --color --progress"
   },
   "repository": {
     "type": "git",
@@ -16,8 +17,13 @@
     "url": "https://github.com/tomsza26/greatPreactConfig/issues"
   },
   "homepage": "https://github.com/tomsza26/greatPreactConfig#readme",
+  "browserslist": [
+    "last 2 versions"
+  ],
   "dependencies": {
     "preact": "^10.7.1",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
     "react-redux": "^8.0.0",
     "react-router": "^6.3.0",
     "redux": "^4.1.2",
@@ -25,16 +31,29 @@
     "styled-components": "^5.3.5"
   },
   "devDependencies": {
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.16.7",
+    "@types/circular-dependency-plugin": "^5.0.5",
+    "@types/node": "^17.0.27",
     "@types/react": "^18.0.5",
     "@types/react-dom": "^18.0.1",
+    "@types/webpack": "^5.28.0",
+    "@types/webpack-bundle-analyzer": "^4.4.1",
+    "babel-loader": "^8.2.5",
+    "circular-dependency-plugin": "^5.2.2",
     "cross-env": "^7.0.3",
     "eslint": "^8.13.0",
+    "html-loader": "^3.1.0",
+    "html-webpack-plugin": "^5.5.0",
     "ts-loader": "^9.2.8",
+    "ts-node": "^10.7.0",
     "typescript": "^4.6.3",
     "webpack": "^5.72.0",
     "webpack-bundle-analyzer": "^4.5.0",
     "webpack-cli": "^4.9.2",
-    "webpack-dev-server": "^4.8.1"
+    "webpack-dev-server": "^4.8.1",
+    "webpack-pwa-manifest": "^4.3.0"
   }
 }

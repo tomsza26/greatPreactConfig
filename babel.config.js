@@ -28,6 +28,7 @@ module.exports = {
         importSource: "react",
       },
     ],
+    ["@babel/preset-typescript"],
   ],
   plugins: [
     [
@@ -44,17 +45,6 @@ module.exports = {
     "@babel/plugin-syntax-dynamic-import",
   ],
   env: {
-    production: {
-      only: ["app"],
-      plugins: [
-        [
-          "transform-react-remove-prop-types",
-          {
-            removeImport: true,
-          },
-        ],
-      ],
-    },
     test: {
       plugins: ["@babel/plugin-transform-modules-commonjs", "dynamic-import-node"],
     },

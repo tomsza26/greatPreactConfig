@@ -1,28 +1,29 @@
-// Important modules this config uses
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
-const WebpackPwaManifest = require("webpack-pwa-manifest");
+import path from "path";
+import { Configuration } from "webpack";
+import HtmlWebpackPlugin from "html-webpack-plugin";
+import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
+import WebpackPwaManifest from "webpack-pwa-manifest";
 const { HashedModuleIdsPlugin } = require("webpack").ids;
 // const CompressionPlugin = require('compression-webpack-plugin');
-const TerserPlugin = require("terser-webpack-plugin");
+import TerserPlugin from "terser-webpack-plugin";
 
-const PACKAGE = require("../package.json");
-const packageVersion = PACKAGE.version.replace(/\.+/gi, "_");
+import { configBase } from "./webpack.base";
 
 const origin = "";
 const publicPath = "";
 
-module.exports = require("./webpack.base.babel")({
+const config: Configuration = {
+  ...configBase,
   mode: "production",
 
   // In production, we skip all hot-reloading stuff
-  entry: [path.join(process.cwd(), "app/app.js")],
+  entry: [path.join(process.cwd(), "src/index.tsx")],
 
   // Utilize long-term caching by adding content hashes (not compilation hashes) to compiled assets
   output: {
     filename: "[name].[chunkhash].js",
     chunkFilename: "[name].[chunkhash].chunk.js",
+    path: path.resolve(process.cwd(), "build"),
     // publicPath,
     clean: true,
   },
@@ -82,9 +83,8 @@ module.exports = require("./webpack.base.babel")({
   plugins: [
     // Minify and optimize the index.html
     new HtmlWebpackPlugin({
-      template: "app/index.html",
+      template: "src/index.html",
       templateParameters: {},
-      filename: `v${packageVersion}/index.html`,
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -145,6 +145,8 @@ module.exports = require("./webpack.base.babel")({
   ],
 
   performance: {
-    assetFilter: (assetFilename) => !/(\.map$)|(^(main\.|favicon\.))/.test(assetFilename),
+    assetFilter: (assetFilename: string) => !/(\.map$)|(^(main\.|favicon\.))/.test(assetFilename),
   },
-});
+};
+
+export default config;
