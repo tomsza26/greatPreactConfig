@@ -27,7 +27,7 @@
     "last 2 versions"
   ],
   "lint-staged": {
-    "*.ts?(x)": [
+    "*.{js,jsx,ts,tsx}": [
       "npm run lint:eslint:fix",
       "git add --force"
     ],
