@@ -1,17 +1,20 @@
-import ReactDOM from "react-dom";
-// import { Provider } from 'react-redux';
+// @ts-nocheck
+// TODO - type
 
-import { App } from "containers/App";
+import { createRoot } from 'react-dom/client';
+import { Provider } from 'react-redux';
+import { store } from 'reduxConfig';
+
+import { App } from 'containers/App';
 // import Router from 'utils/Router';
 // import store from 'utils/store';
 
-const MOUNT_NODE = document.getElementById("app");
+const root = createRoot(document.getElementById('app')!);
 
-ReactDOM.render(
-  // <Provider store={store}>
-  // <Router>
-  <App />,
-  // </Router>
-  // </Provider>,
-  MOUNT_NODE
+root.render(
+  <Provider store={store}>
+    {/* <Router> */}
+    <App />
+    {/* </Router> */}
+  </Provider>,
 );

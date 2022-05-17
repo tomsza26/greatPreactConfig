@@ -5,7 +5,13 @@
   "main": "index.ts",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --config webpack/webpack.dev.ts",
-    "build": "npx browserslist@latest --update-db && cross-env NODE_ENV=production webpack --config webpack/webpack.prod.ts --color --progress"
+    "build": "npx browserslist@latest --update-db && cross-env NODE_ENV=production webpack --config webpack/webpack.prod.ts --color --progress",
+    "lint": "env FORCE_COLOR=1 npm run lint:js",
+    "lint:eslint": "eslint --ignore-path .gitignore",
+    "lint:eslint:fix": "eslint --ignore-path .gitignore --fix",
+    "lint:js": "npm run lint:eslint -- .",
+    "lint:staged": "lint-staged",
+    "prettify": "prettier --write"
   },
   "repository": {
     "type": "git",
@@ -20,53 +26,67 @@
   "browserslist": [
     "last 2 versions"
   ],
+  "lint-staged": {
+    "*.js?(x),*.ts?(x)": [
+      "npm run lint:eslint:fix",
+      "git add --force"
+    ],
+    "*.json": [
+      "prettier --write",
+      "git add --force"
+    ]
+  },
+  "pre-commit": "lint",
   "dependencies": {
-    "preact": "^10.7.1",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "react-redux": "^8.0.0",
+    "@reduxjs/toolkit": "^1.8.1",
+    "preact": "^10.7.2",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "react-redux": "^8.0.1",
     "react-router": "^6.3.0",
-    "redux": "^4.1.2",
+    "redux": "^4.2.0",
     "reselect": "^4.1.5",
     "styled-components": "^5.3.5"
   },
   "devDependencies": {
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
-    "@babel/preset-env": "^7.16.11",
-    "@babel/preset-react": "^7.16.7",
-    "@babel/preset-typescript": "^7.16.7",
+    "@babel/preset-env": "^7.17.12",
+    "@babel/preset-react": "^7.17.12",
+    "@babel/preset-typescript": "^7.17.12",
     "@types/circular-dependency-plugin": "^5.0.5",
-    "@types/eslint": "^8.4.1",
-    "@types/node": "^17.0.27",
-    "@types/react": "^18.0.5",
-    "@types/react-dom": "^18.0.1",
+    "@types/eslint": "^8.4.2",
+    "@types/node": "^17.0.34",
+    "@types/react": "^18.0.9",
+    "@types/react-dom": "^18.0.4",
     "@types/webpack": "^5.28.0",
     "@types/webpack-bundle-analyzer": "^4.4.1",
-    "@typescript-eslint/eslint-plugin": "^5.21.0",
-    "@typescript-eslint/parser": "^5.21.0",
+    "@typescript-eslint/eslint-plugin": "^5.24.0",
+    "@typescript-eslint/parser": "^5.24.0",
     "babel-loader": "^8.2.5",
     "circular-dependency-plugin": "^5.2.2",
     "cross-env": "^7.0.3",
-    "eslint": "^8.14.0",
-    "eslint-config-airbnb": "^19.0.4",
+    "eslint": "^8.15.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^2.7.1",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.29.4",
-    "eslint-plugin-react-hooks": "^4.4.0",
+    "eslint-plugin-react-hooks": "^4.5.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "eslint-plugin-sort-destructure-keys": "^1.4.0",
     "html-loader": "^3.1.0",
     "html-webpack-plugin": "^5.5.0",
+    "lint-staged": "^12.4.1",
     "prettier": "^2.6.2",
-    "ts-loader": "^9.2.8",
+    "ts-loader": "^9.3.0",
     "ts-node": "^10.7.0",
-    "typescript": "^4.6.3",
-    "webpack": "^5.72.0",
+    "typescript": "^4.6.4",
+    "webpack": "^5.72.1",
     "webpack-bundle-analyzer": "^4.5.0",
     "webpack-cli": "^4.9.2",
-    "webpack-dev-server": "^4.8.1",
+    "webpack-dev-server": "^4.9.0",
     "webpack-pwa-manifest": "^4.3.0"
   }
 }

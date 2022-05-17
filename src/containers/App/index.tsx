@@ -1,3 +1,9 @@
+import { useSelector } from 'react-redux';
+
+import { getName } from './selectors';
+
 export const App = () => {
-  return <div>xd</div>;
+  const name = useSelector(getName);
+
+  return <div>{name}</div>;
 };

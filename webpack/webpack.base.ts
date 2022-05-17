@@ -1,12 +1,11 @@
-import path from "path";
-import { Configuration } from "webpack";
+import { Configuration } from 'webpack';
 
 const cssVariablesMap = {};
 
 export const configBase: Configuration = {
   output: {
     // Compile into js/build.js
-    publicPath: "/",
+    publicPath: '/',
   }, // Merge with env dependent settings
   module: {
     rules: [
@@ -41,7 +40,7 @@ export const configBase: Configuration = {
         test: /\.(jsx|tsx|ts)$/, // Transform all .js and .jsx files required somewhere with Babel
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
         },
       },
       {
@@ -50,17 +49,17 @@ export const configBase: Configuration = {
         // for a list of loaders, see https://webpack.js.org/loaders/#styling
         test: /\.css$/,
         exclude: /node_modules/,
-        use: ["style-loader", "css-loader"],
+        use: ['style-loader', 'css-loader'],
       },
       {
         // Preprocess 3rd party .css files located in node_modules
         test: /\.css$/,
         include: /node_modules/,
-        use: ["style-loader", "css-loader"],
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.(eot|otf|ttf|woff|woff2)$/,
-        type: "asset",
+        type: 'asset',
         parser: {
           dataUrlCondition: {
             maxSize: 0,
@@ -69,7 +68,7 @@ export const configBase: Configuration = {
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/,
-        type: "asset",
+        type: 'asset',
         parser: {
           dataUrlCondition: {
             maxSize: 10 * 1024,
@@ -78,7 +77,7 @@ export const configBase: Configuration = {
       },
       {
         test: /\.html$/,
-        use: "html-loader",
+        use: 'html-loader',
       },
     ],
   },
@@ -91,13 +90,13 @@ export const configBase: Configuration = {
   //   }),
   // ]),
   resolve: {
-    modules: ["node_modules", "src"],
-    extensions: [".tsx", ".ts", ".js"],
-    mainFields: ["browser", "jsnext:main", "main"],
+    modules: ['node_modules', 'src'],
+    extensions: ['.tsx', '.ts', '.js'],
+    mainFields: ['browser', 'jsnext:main', 'main'],
     alias: {
-      react: "preact/compat",
-      "react-dom": "preact/compat",
+      react: 'preact/compat',
+      'react-dom': 'preact/compat',
     },
   },
-  target: "web", // Make web variables accessible to webpack, e.g. window
+  target: 'web', // Make web variables accessible to webpack, e.g. window
 };
