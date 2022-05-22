@@ -21,9 +21,10 @@ const config: Configuration = {
   },
 
   devServer: {
-    hot: true,
     port: 3000,
   },
+
+  stats: 'minimal',
 
   optimization: {
     splitChunks: {
