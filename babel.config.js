@@ -4,35 +4,35 @@ module.exports = {
   },
   presets: [
     [
-      "@babel/preset-env",
+      '@babel/preset-env',
       {
         modules: false,
         targets: {
           esmodules: true,
         },
         exclude: [
-          "@babel/plugin-transform-parameters",
-          "@babel/plugin-proposal-optional-chaining",
-          "@babel/plugin-proposal-object-rest-spread",
-          "@babel/plugin-transform-template-literals",
-          "@babel/plugin-transform-async-to-generator",
-          "@babel/plugin-transform-typeof-symbol",
-          "@babel/plugin-transform-classes",
+          '@babel/plugin-transform-parameters',
+          '@babel/plugin-proposal-optional-chaining',
+          '@babel/plugin-proposal-object-rest-spread',
+          '@babel/plugin-transform-template-literals',
+          '@babel/plugin-transform-async-to-generator',
+          '@babel/plugin-transform-typeof-symbol',
+          '@babel/plugin-transform-classes',
         ],
       },
     ],
     [
-      "@babel/preset-react",
+      '@babel/preset-react',
       {
-        runtime: "automatic",
-        importSource: "react",
+        runtime: 'automatic',
+        importSource: 'react',
       },
     ],
-    ["@babel/preset-typescript"],
+    ['@babel/preset-typescript'],
   ],
   plugins: [
     [
-      "babel-plugin-styled-components",
+      'babel-plugin-styled-components',
       {
         minify: true,
         displayName: false, // false to reduce bundle size
@@ -42,11 +42,11 @@ module.exports = {
         ssr: false,
       },
     ],
-    "@babel/plugin-syntax-dynamic-import",
+    '@babel/plugin-syntax-dynamic-import',
   ],
   env: {
     test: {
-      plugins: ["@babel/plugin-transform-modules-commonjs", "dynamic-import-node"],
+      plugins: ['@babel/plugin-transform-modules-commonjs', 'dynamic-import-node'],
     },
   },
 };

@@ -1,29 +1,29 @@
-import path from "path";
-import { Configuration } from "webpack";
-import HtmlWebpackPlugin from "html-webpack-plugin";
-import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
-import WebpackPwaManifest from "webpack-pwa-manifest";
-const { HashedModuleIdsPlugin } = require("webpack").ids;
+import path from 'path';
+import { Configuration } from 'webpack';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import WebpackPwaManifest from 'webpack-pwa-manifest';
+const { HashedModuleIdsPlugin } = require('webpack').ids;
 // const CompressionPlugin = require('compression-webpack-plugin');
-import TerserPlugin from "terser-webpack-plugin";
+import TerserPlugin from 'terser-webpack-plugin';
 
-import { configBase } from "./webpack.base";
+import { configBase } from './webpack.base';
 
-const origin = "";
-const publicPath = "";
+const origin = '';
+const publicPath = '';
 
 const config: Configuration = {
   ...configBase,
-  mode: "production",
+  mode: 'production',
 
   // In production, we skip all hot-reloading stuff
-  entry: [path.join(process.cwd(), "src/index.tsx")],
+  entry: [path.join(process.cwd(), 'src/index.tsx')],
 
   // Utilize long-term caching by adding content hashes (not compilation hashes) to compiled assets
   output: {
-    filename: "[name].[chunkhash].js",
-    chunkFilename: "[name].[chunkhash].chunk.js",
-    path: path.resolve(process.cwd(), "build"),
+    filename: '[name].[chunkhash].js',
+    chunkFilename: '[name].[chunkhash].chunk.js',
+    path: path.resolve(process.cwd(), 'build'),
     // publicPath,
     clean: true,
   },
@@ -46,12 +46,12 @@ const config: Configuration = {
         parallel: true,
       }),
     ],
-    nodeEnv: "production",
+    nodeEnv: 'production',
     sideEffects: true,
     concatenateModules: true,
     runtimeChunk: false,
     splitChunks: {
-      chunks: "all",
+      chunks: 'all',
       maxInitialRequests: 10,
       minSize: 0,
       cacheGroups: {
@@ -59,7 +59,7 @@ const config: Configuration = {
           test: /[\\/]node_modules[\\/]/,
           // name: 'npm.modules',
           priority: -10,
-          name: "npm",
+          name: 'npm',
         },
         /* styles: {
           test: /styles([a-zA-Z]+)?\.js/,
@@ -83,7 +83,7 @@ const config: Configuration = {
   plugins: [
     // Minify and optimize the index.html
     new HtmlWebpackPlugin({
-      template: "src/index.html",
+      template: 'src/index.html',
       templateParameters: {},
       minify: {
         removeComments: true,
@@ -111,11 +111,11 @@ const config: Configuration = {
     }), */
 
     new WebpackPwaManifest({
-      name: "Great Preact Boilerplate",
-      short_name: "Great Preact Boilerplate",
-      description: "Great Preact Boilerplate",
-      background_color: "#fff",
-      theme_color: "#4d5964",
+      name: 'Great Preact Boilerplate',
+      short_name: 'Great Preact Boilerplate',
+      description: 'Great Preact Boilerplate',
+      background_color: '#fff',
+      theme_color: '#4d5964',
       inject: true,
       ios: true,
       // publicPath,
@@ -134,8 +134,8 @@ const config: Configuration = {
     }),
 
     new HashedModuleIdsPlugin({
-      hashFunction: "sha256",
-      hashDigest: "hex",
+      hashFunction: 'sha256',
+      hashDigest: 'hex',
       hashDigestLength: 20,
     }),
 
