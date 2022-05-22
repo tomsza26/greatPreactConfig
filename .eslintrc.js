@@ -23,6 +23,7 @@ module.exports = {
     'sort-destructure-keys',
     'import',
   ],
+  root: true,
   rules: {
     'max-len': [2, { code: 120 }],
     'arrow-parens': 0,
