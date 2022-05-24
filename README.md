@@ -29,3 +29,5 @@ Only 107kB
 - <u>husky pre-commit hooks</u> (to prevent adding nasty code to your repository)
 
 - <u>eslint-plugin-simple-import-sort</u> (sort and group imports)
+
+- <u>speedy web compiler</u> (to compile your code even faster)
