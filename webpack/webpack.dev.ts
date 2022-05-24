@@ -53,6 +53,4 @@ const config: Configuration = merge(configBase, {
   },
 });
 
-console.log(config);
-
 export default config;
