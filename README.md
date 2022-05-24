@@ -18,14 +18,14 @@ Only 107kB
 
 ### to make development enjoyable:
 
-- <mark>typescript </mark> (real time types check)
+- <u>typescript</u> (real time types check)
 
-- <mark>eslint </mark> (enforce code rules to sustain coherence of code)
+- <u>eslint</u> (enforce code rules to sustain coherence of code)
 
-- <mark>stylelint </mark> (style rules adjusted to the styled components)
+- <u>stylelint</u> (style rules adjusted to the styled components)
 
-- <mark>prettier </mark> (beautify your code)
+- <u>prettier</u> (beautify your code)
 
-- <mark>husky pre-commit hooks</mark> (to prevent adding nasty code to your repository)
+- <u>husky pre-commit hooks</u> (to prevent adding nasty code to your repository)
 
-- <mark>eslint-plugin-simple-import-sort</mark> (sort and group imports)
+- <u>eslint-plugin-simple-import-sort</u> (sort and group imports)
