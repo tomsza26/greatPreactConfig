@@ -1,6 +1,7 @@
 import CircularDependencyPlugin from 'circular-dependency-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import webpack, { Configuration as WebpackConfiguration } from 'webpack';
+import { merge } from 'webpack-merge';
 
 import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server';
 
@@ -10,8 +11,7 @@ interface Configuration extends WebpackConfiguration {
 
 import { configBase } from './webpack.base';
 
-const config: Configuration = {
-  ...configBase,
+const config: Configuration = merge(configBase, {
   mode: 'development',
 
   // Don't use hashes in dev mode for a better performance
@@ -51,6 +51,8 @@ const config: Configuration = {
   performance: {
     hints: false,
   },
-};
+});
+
+console.log(config);
 
 export default config;

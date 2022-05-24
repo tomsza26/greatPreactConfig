@@ -4,6 +4,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import WebpackPwaManifest from 'webpack-pwa-manifest';
 const { HashedModuleIdsPlugin } = require('webpack').ids;
+import { merge } from 'webpack-merge';
 // const CompressionPlugin = require('compression-webpack-plugin');
 import TerserPlugin from 'terser-webpack-plugin';
 
@@ -12,8 +13,7 @@ import { configBase } from './webpack.base';
 const origin = '';
 const publicPath = '';
 
-const config: Configuration = {
-  ...configBase,
+const config: Configuration = merge(configBase, {
   mode: 'production',
 
   // In production, we skip all hot-reloading stuff
@@ -147,6 +147,6 @@ const config: Configuration = {
   performance: {
     assetFilter: (assetFilename: string) => !/(\.map$)|(^(main\.|favicon\.))/.test(assetFilename),
   },
-};
+});
 
 export default config;

@@ -1,4 +1,4 @@
-import { Configuration } from 'webpack';
+import { Configuration, ProvidePlugin } from 'webpack';
 
 const cssVariablesMap = {};
 
@@ -37,10 +37,10 @@ export const configBase: Configuration = {
       //   },
       // },
       {
-        test: /\.(jsx|tsx|ts)$/, // Transform all .js and .jsx files required somewhere with Babel
+        test: /\.(jsx|tsx|ts)$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: 'swc-loader',
         },
       },
       {
@@ -98,5 +98,10 @@ export const configBase: Configuration = {
       'react-dom': 'preact/compat',
     },
   },
+  plugins: [
+    new ProvidePlugin({
+      React: 'react',
+    }),
+  ],
   target: 'web', // Make web variables accessible to webpack, e.g. window
 };
