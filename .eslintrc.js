@@ -13,7 +13,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  ignorePatterns: ['.eslintrc.js', 'webpack', 'build', 'babel.config.js'],
+  ignorePatterns: ['.eslintrc.js', 'webpack', 'build'],
   plugins: [
     'prettier',
     'react',
