@@ -2,7 +2,7 @@
 
 Minimalistic and clean template for any frontend project.
 
-Only 107kB
+Only 67kB
 
 ### tech stack:
 
