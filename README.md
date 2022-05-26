@@ -31,3 +31,7 @@ Only 67kB
 - <u>eslint-plugin-simple-import-sort</u> (sort and group imports)
 
 - <u>speedy web compiler</u> (to compile your code even faster)
+
+### perks:
+
+- <u>built in translation module</u> (internationalize your site)
