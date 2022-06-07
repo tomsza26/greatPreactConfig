@@ -1,6 +1,6 @@
 # greatPreactConfig
 
-Minimalistic and clean template for any frontend project.
+Minimalistic and clean template for any SPA frontend project.
 
 Only 67kB
 
