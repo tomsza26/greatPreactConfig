@@ -66,7 +66,7 @@ module.exports = {
       {
         groups: [
           ['^\\u0000'],
-          ['^@?\\w', 'styled-components'],
+          ['^@?\\w'],
           ['^'],
           ['^(components|containers|hooks|images|reduxConfig|utils|translations)/'],
           ['^\\.'],

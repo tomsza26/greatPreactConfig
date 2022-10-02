@@ -12,7 +12,7 @@ Only 67kB
 
 - redux v.4
 
-- styled-components v.5
+- goober v.2
 
 - webpack v.5
 
@@ -22,7 +22,7 @@ Only 67kB
 
 - <u>eslint</u> (enforce code rules to sustain coherence of code)
 
-- <u>stylelint</u> (style rules adjusted to the styled components)
+- <u>stylelint</u> (style rules adjusted to the goober)
 
 - <u>prettier</u> (beautify your code)
 
