@@ -1,7 +1,6 @@
+import { getLanguage } from 'containers/App/selectors';
 import { store } from 'reduxConfig';
 import { translations } from 'translations';
-
-import { getLanguage } from 'containers/App/selectors';
 import { isFunction } from 'utils/tinyLodash';
 
 export const t = (key: string, params = {}) => {

@@ -2,7 +2,7 @@
 
 Minimalistic and clean template for any SPA frontend project.
 
-Only 67kB
+Only 73kB
 
 ### tech stack:
 

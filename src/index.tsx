@@ -5,9 +5,9 @@ import { setup } from 'goober';
 import { createElement } from 'react';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
-import { store } from 'reduxConfig';
 
 import { App } from 'containers/App';
+import { store } from 'reduxConfig';
 import { Router } from 'utils/Router';
 
 setup(createElement);
