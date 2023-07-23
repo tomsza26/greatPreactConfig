@@ -22,7 +22,7 @@ Only 73kB
 
 - <u>eslint</u> (enforce code rules to sustain coherence of code)
 
-- <u>stylelint</u> (style rules adjusted to the goober)
+- ~<u>stylelint</u> (style rules adjusted to the goober)~
 
 - <u>prettier</u> (beautify your code)
 

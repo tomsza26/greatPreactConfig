@@ -1,11 +1,5 @@
 {
   "processors": ["stylelint-processor-styled-components"],
   "extends": ["stylelint-config-standard-scss", "stylelint-config-styled-components"],
-  "customSyntax": "postcss-scss",
-  "rules": {
-    "value-keyword-case": ["lower", { "ignoreKeywords": ["dummyValue"] }],
-    "declaration-empty-line-before": null,
-    "declaration-block-no-duplicate-properties": true,
-    "declaration-colon-newline-after": null
-  }
+  "customSyntax": "postcss-scss"
 }
